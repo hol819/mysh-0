@@ -7,7 +7,6 @@ void mysh_parse_command(const char* command, int *argc, char* argv[])
 	char* stack
 	for(int i=0; command[i] != '\0'; i++)
 	{
-		int k = 0;
 		
 		if(command[i] != ' ')
 		{
