@@ -8,22 +8,22 @@ void mysh_parse_command(const char* command, int *argc, char* argv[])
 	for(int i=0; command[i] != '\0'; i++)
 	{
 		
-		if(command[i] != ' ')
+		if(command[i] != " ")
 		{
 			argv[argc][i] = command[i];			
 		}
-		else if(command[i] == ' ')
+		else if(command[i] == " ")
 		{	
 			argc++;
 		}
 	}
 	argc++;
-	printf("argc == [%d], argv == [ ",&argc);
+	/*printf("argc == [%d], argv == [ ",&argc);
 	for(int i=0; i < argc; i++)
 	{
 		printf("'%s' ",&argv[i]);
 	}
-	printf("]\n");
+	printf("]\n");*/
 	
   // TODO: Fill this!
 }
