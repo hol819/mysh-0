@@ -1,7 +1,7 @@
 #include <string.h>
 
 #include "commands.h"
-
+#include <stdio.h>
 int do_cd(int argc, char** argv) {
 	if (!validate_cd_argv(argc, argv))
     		return -1;
@@ -12,8 +12,8 @@ int do_cd(int argc, char** argv) {
 	
 	else if(argc == 2)
 	{
-		if(chdir(argv[1])
-			printf("Can't go to %s",argv[1]);
+		if(chdir(argv[1]))
+			return -1;
 	}
 	
 	return 0;
