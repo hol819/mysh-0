@@ -35,18 +35,24 @@ int do_pwd(int argc, char** argv)
 
 int validate_cd_argv(int argc, char** argv) 
 {
-	if(argc > 2)
+	if(argv[0]=="cd")
 	{
-		printf("please input cd [dir]\n");
+		if(argc > 2)
+		{
+			printf("please input cd [dir]\n");
+			return 0;
+		}
+		else
+			return 1;
+	}
+	else	// TODO: Fill it!
 		return 0;
-	}	
-
-
-	// TODO: Fill it!
-	return 1;
 }
 
 int validate_pwd_argv(int argc, char** argv) {
   // TODO: Fill it!
-  return 1;
+  if(argv[0]=="pwd")
+	  return 1;
+  else
+	  return 0;
 }
