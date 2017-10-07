@@ -1,14 +1,14 @@
 #include <string.h>
 
 #include "commands.h"
-#include <stdio.h>
 int do_cd(int argc, char** argv) {
+
 	if (!validate_cd_argv(argc, argv))
     		return -1;
 
 	// TODO: Fill it!
 	else if(argc == 1)
-		chdir(getenv("HOME"));
+		chdir("/home/aeis");
 	
 	else if(argc == 2)
 	{
@@ -25,21 +25,21 @@ int do_pwd(int argc, char** argv)
 		return -1;
 	
 	// TODO: Fill it!
-
 	else
 	{
-		printf("%s\n", getenv("PWD"));
+		char buf[255];
+		getcwd(buf,255);
+		printf("%s\n", buf);
 	}
 	return 0;
 }
 
 int validate_cd_argv(int argc, char** argv) 
 {
-	if(argv[0]=="cd")
+	if(strcmp(argv[0],"cd")==0)
 	{
 		if(argc > 2)
 		{
-			printf("please input cd [dir]\n");
 			return 0;
 		}
 		else
@@ -51,8 +51,13 @@ int validate_cd_argv(int argc, char** argv)
 
 int validate_pwd_argv(int argc, char** argv) {
   // TODO: Fill it!
-  if(argv[0]=="pwd")
-	  return 1;
-  else
-	  return 0;
+	if(strcmp(argv[0],"pwd")==0)
+	{
+		if(argc==1)
+			return 1;
+		else
+			return 0;
+	}
+	else
+		return 0;
 }
