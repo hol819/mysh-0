@@ -3,6 +3,10 @@
 
 void mysh_parse_command(const char* command, int *argc, char*** argv)
 {	
+        char *str =(char*)malloc(sizeof(char)*255);
+	str=command;
+	if(str[strlen(str)-1]=='\n')
+		str[strlen(str)-1]='\0';
 	int count=0;	
 	*argc = 0;
 
@@ -14,15 +18,15 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
                 int i = 0;
                 int t = 0;
 		int con = 0;
-                for (i = 0; *(command) != NULL; i++)
+                for (i = 0; *(str) != NULL; i++)
                 {
-                        for (t = 0; *(command) != NULL; t++)
+                        for (t = 0; *(str) != NULL; t++)
                         {
 				RE:
-                                if (*(command) != '\0'&&*(command) != ' '&&*(command) != '\n'&&*(command) != '\t')
+                                if (*(str) != '\0'&&*(str) != ' '&&*(str) != '\n'&&*(str) != '\t')
                                 {
-                                        *(*(stack + i) + t) = *command;
-                                        command++;
+                                        *(*(stack + i) + t) = *str;
+                                        str++;
 					con = 1;
                                 }
                                 else
@@ -32,14 +36,14 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 						con = 0;
 						count++;
                                         	*(*(stack+i) + t) = '\0';
-                                        	command++;
+                                        	str++;
 						break;
 					}
-					else if(*(command)=='\0')
+					else if(*(str)==NULL)
 						break;
 					else if(con==0);
 					{
-						command++;
+						str++;
 						goto RE;
                                 	}
 				}
@@ -47,7 +51,7 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
                 }
                 *(*(stack+i - 1) + t) = '\0';
 		count++;
-	
+		
 	
 	
 	

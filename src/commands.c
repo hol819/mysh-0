@@ -42,7 +42,10 @@ int validate_cd_argv(int argc, char** argv)
 			return 1;
 		
 		else
+		{
+			printf("validate fail...\n");
 			return 0;
+		}
 	}
 	else	// TODO: Fill it!
 		return 0;
@@ -55,7 +58,10 @@ int validate_pwd_argv(int argc, char** argv) {
 		if(argc==1)
 			return 1;
 		else
+		{
+			printf("validate fail...\n");
 			return 0;
+		}
 	}
 	else
 		return 0;
