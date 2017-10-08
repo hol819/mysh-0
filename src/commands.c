@@ -38,11 +38,11 @@ int validate_cd_argv(int argc, char** argv)
 {
 	if(strcmp(argv[0],"cd")==0)
 	{
-		if(argc > 2)
-			return 0;
+		if(argc == 2)
+			return 1;
 		
 		else
-			return 1;
+			return 0;
 	}
 	else	// TODO: Fill it!
 		return 0;

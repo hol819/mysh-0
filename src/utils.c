@@ -18,6 +18,7 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
                 {
                         for (t = 0; *(command) != NULL; t++)
                         {
+				RE:
                                 if (*(command) != '\0'&&*(command) != ' '&&*(command) != '\n'&&*(command) != '\t')
                                 {
                                         *(*(stack + i) + t) = *command;
@@ -34,9 +35,14 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
                                         	command++;
 						break;
 					}
-					else
+					else if(*(command)=='\0')
+						break;
+					else if(con==0);
+					{
 						command++;
-                                }
+						goto RE;
+                                	}
+				}
                         }
                 }
                 *(*(stack+i - 1) + t) = '\0';
