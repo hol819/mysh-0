@@ -39,9 +39,8 @@ int validate_cd_argv(int argc, char** argv)
 	if(strcmp(argv[0],"cd")==0)
 	{
 		if(argc > 2)
-		{
 			return 0;
-		}
+		
 		else
 			return 1;
 	}
